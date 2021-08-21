@@ -1,0 +1,106 @@
+<h1 id="google-summer-of-code-2021-exploring-alternative-visualizations-for-openchem-qcdevs">Google Summer of Code 2021: Exploring Alternative Visualizations for OpenChem QCDevs</h1>
+<p>Nathan Wood, Year 4 Undergraduate, Microbiology and Cell Science, University of Florida</p>
+<p>This project was prepared under the advisory of Dr. Farnaz Heidar-Zadeh, Dr. Paul Ayers, and Dr. Esteban Vohringer-Martinez</p>
+<h2 id="note-submitted-work">Note: Submitted Work</h2>
+<p>All work pertaining to objectives has been linked within the Results section.</p>
+<p>For ease of access, links can also be found below:</p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimerax_vis_esp.py">Python Function of ChimeraX Isosurface Visualization</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.ipynb">Jupyter Notebook of 3D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.py">Python Script of 3D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.ipynb">Jupyter Notebook of 2D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.py">Python Script of 2D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/2D_Plotting_Gradient.ipynb">Jupyter Notebook of Both Vector and Scalar Qualities</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/plotVectorField.py">Python Script of Field Plot</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/plotScalarContour.py">Python Script of Contour Plot</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>OpenChem wishes to implement a means of visualizing Chemtools data. Such means include exploring viable alternatives to Visualizing Molecular Dynamics as a visualization platfrom. Further visualization goals include the plotting of gradient vector fields and annotation of molecules. Additionally, ChimeraX, developed by the University of California, San Francisco, was chosen as a general purpose alternative for VMD, with regards to visualizing isosurfaces as well as molecular annotations.</p>
+<h2 id="goals">Goals</h2>
+<h3 id="visualizing-electrostatic-potential-isosurfaces">Visualizing Electrostatic Potential Isosurfaces</h3>
+<p>We wish to examine alternatives to Visualizing Molecular Dynamics (VMD) to visualize isosurfaces of molecules computed by Chemtools. Examples of VMD Alternatives include Avogadro/Avogadro2, ChimeraX, IQMol, JMol/JSMol, and PyMOL.</p>
+<h3 id="d-annotation-of-molecules">3D Annotation of Molecules</h3>
+<p>We wish to devise a means of taking IOData output, such as electrostatic potential charges, and applying these values as text annotations in a molecule rendered in a three dimensional environment.</p>
+<h3 id="d-annotation-of-molecules-1">2D Annotation of Molecules</h3>
+<p>We wish to implement a means of not only visualizing a given molecule originating from a Gaussian Checkpoint file (fchk), but also annotating a 2-dimensional representation of this molecule using data from IOData.</p>
+<h3 id="plotting-of-vector-and-scalar-qualities-of-molecules">Plotting of Vector and Scalar Qualities of Molecules</h3>
+<p>We wish to develop a means of visualizing the computation of both scalar and vector qualities of molecules.</p>
+<h3 id="molecular-graphs-of-bond-and-ring-critical-points">Molecular Graphs of Bond and Ring Critical Points</h3>
+<p>We wish to implement a means of visualizing the bond and ring critical points of a given molecule.</p>
+<h2 id="results">Results</h2>
+<h3 id="visualizing-electrostatic-potential-isosurfaces-1">Visualizing Electrostatic Potential Isosurfaces</h3>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimerax_vis_esp.py">Python function can be found here</a></p>
+<p>A script, consolidated as function <code>print_chimerax_isosurfaces</code>, has been written, and accomplishes the following actions within the ChimeraX Environment:</p>
+<ul>
+<li><p>Open our surfaces file, generically named <code>*_rho.cube</code></p></li>
+<li><p>Open our map file, which allows us to color the surfaces, generically named <code>*_esp.cube</code></p></li>
+<li><p>Set to isosurface levels to visualize</p></li>
+<li><p>Set the lighting, shadows, surface material appearance (ie dull or shiny), and representation (ie sufraces or meshes)</p></li>
+<li><p>Set a color palette, both custom or built into ChimeraX</p></li>
+<li><p>Set the minimum <code>scalemin</code> and maximum <code>scalemax</code> value range for colorizng the surfaces, or allow ChimeraX to determine the most suitable range using the string <code>'compute'</code> for both the <code>scalemin</code> and <code>scalemax</code> parameters within the script</p></li>
+</ul>
+<h3 id="d-annotation-of-molecules-2">3D Annotation of Molecules</h3>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.ipynb">Jupyter Notebook of 3D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.py">Python Script of 3D Annotation</a></p>
+<p>IOData can output to Protein Data Bank (PDB) files, a text file that enumerates monomer and a atomic data, such as element, XYZ cartesian coordinates, and B Factor, which has historically been used to quantify flexibility and freedom of motion in computational protein-ligand docking. Originally, ChimeraX’s Attribute Files, which allow a tab separated table enumerating characteristics per unit, was conceived as a means of annotating molecules as it was not considered to be a &quot;hack&quot; and could allow multiple different annotations could be performed without overwriting our PDB. However, this was abandoned due to the complexity of assigning IOData values to an format ChimeraX finds accessible.<br />
+</p>
+<p>IOData possesses a feature known as <code>extra</code>, which allows writing in B Factors when an intermediate PDB file is opened using IOData function <code>load_one</code>, which can then be written to a finalized PDB file to be loaded into ChimeraX. Once loaded, ChimeraX can visualize the B Factor using its labeling utilities.</p>
+<center>
+<img src="3dannotate.png" alt="3D Annotation with ESP Charges of 2,6-dichloropyridine" width="200"/>
+</center>
+<h3 id="d-annotation-of-molecules-3">2D Annotation of Molecules</h3>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.ipynb">Jupyter Notebook of 2D Annotation</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.py">Python Script of 2D Annotation</a></p>
+<p>IOData is used to dump an XYZ and PDB files from the original Gaussian Checkpoint (fchk) file. XYZ files are capable of being converted to accurate SMILES strings via the Chemml utilities, however, the order of the atoms being enumerated differs from that of IOData, making it non-trivial to assign charges resulting from IOData’s <code>atcharges</code> call. On the other hand, PDB Files maintain the atomic order as IOData, however, RDKit cannot visualize any pi bonds from the PDB. This is due to the fact that PDB Files store pi bond data based on the distance between atoms in cartesian space, whereas RDKit prefers bonds to be explicitly detailed.</p>
+<p>To address both issues, we can first correct the geometry of the PDB by using RDKit’s <code>Compute2DCoords</code> and then force the PDB to assume the visualization stile of the afforementioned SMILES string using <code>AssignBondOrdersFromTemplate</code>. Afterwards, the charges from IOData can be assigned iteratively.</p>
+<center>
+<img src="test11.png" alt="2D Annotation with ESP Charges of 2,6-dichloropyridine" width="200"/>
+</center>
+<h3 id="plotting-of-vector-and-scalar-qualities-of-molecules-1">Plotting of Vector and Scalar Qualities of Molecules</h3>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/2D_Plotting_Gradient.ipynb">Jupyter Notebook of Both Vector and Scalar Qualities</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/plotVectorField.py">Python Script of Field Plot</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/plotScalarContour.py">Python Script of Contour Plot</a></p>
+<p>A Jupyter Notebook and function <code>plotVectorFieldOverPlane</code> were made that is capable of plotting gradient vector fields. This was performed by:</p>
+<ul>
+<li><p>Using 3D rotate and scale operation against an affine plane, and then normalize to plot vector qualities against.</p></li>
+<li><p>Assigning our <code>vectorFunc</code> as as the vector quality we want to explore, in this case <code>mol.compute_gradient()</code></p></li>
+<li><p>Projecting our vector quality against the rotated affine plane</p></li>
+<li><p>Visualizing the vector quality as a gradient vector field &quot;Quiver Plot&quot;</p></li>
+</ul>
+<p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="200"/></p>
+<p>To plot a scalar quality, in this case electron density, we want to</p>
+<ul>
+<li><p>Rotate an affine plane and normalize to plot scalar quality against</p></li>
+<li><p>Assign our <code>scalarFunc</code> which is a scalar quality of a molecule, in this case, electrostatic density</p></li>
+<li><p>Visualizing the scalar quality as a contour plot, with our <code>scalarFunc</code> representing the level curves</p></li>
+</ul>
+<p><img src="contour.png" alt="Contour Plot for Electron Densityof 2,6-Dichloropyridine" width="200"/></p>
+<h2 id="post-mortem">Post Mortem</h2>
+<h3 id="administrative">Administrative</h3>
+<p>While debug and deprecated code has been removed, parameters for functions need to be explicitly detailed</p>
+<h3 id="discrepancies-between-vmd-and-chimerax">Discrepancies between VMD and ChimeraX</h3>
+<p>There is a discrepancy between appropriate values to display isosurface levels between both ChimeraX and VMD. For the example 2,6-dichloropyridine, the previous VMD example recommends setting <code>isoSurf</code> to .003 (left), however, in ChimeraX, this will produce a noticeable uncolored void that can be corrected when setting <code>isoSurf</code> to .005 (right).</p>
+<p><img src="vmdfail.png" alt="isoSurf=.003" width="200" /> <img src="vmdcorrect.png" alt="AisoSurf=.005" width="200" /></p>
+<h3 id="molecular-graphs">Molecular Graphs</h3>
+<p>The original goal of visualizing molecular graphs detailing the critical points of bonds and ring structures was not fulfilled</p>
+<h2 id="moving-forward">Moving Forward</h2>
+<h3 id="administrative-1">Administrative</h3>
+<ol type="1">
+<li>Code that has been consolidated into functions should have a more detailed explanation of use and parameters</li>
+<li>Future GSOC internships should make further use of correspondence methods such as Email, Github threads, Slack, and Zoom.</li>
+</ol>
+<h3 id="converting-iodata-output-into-chemical-json">Converting IOData Output into Chemical JSON</h3>
+<p>In order to improve interoperability with Avogadro2, it will be necessary to be able to output IOData and Chemtools data into a &quot;Chemical JSON&quot; a form of JSON file that outlines chemical information such as bonds, atoms, as well as charge and molecular/atomic orbital data. While the formatting of basic data such as bonds and atoms is nontrivial, considerable work will have to be done to correctly format quantum chemistry data.</p>
+<h3 id="molecular-graphs-1">Molecular Graphs</h3>
+<p>There remains the need to implement a means to visualize bond and ring critical points.</p>
+<h2 id="special-thanks">Special Thanks</h2>
+<p>I would like to extend great thanks to the following individuals for assisting and granting me flexibility:</p>
+<ul>
+<li><p>Farnaz Heidar Zadeh, Professor, Queens University</p></li>
+<li><p>Paul Ayers, Professor, McMaster University</p></li>
+<li><p>Esteban Vohringer Martinez, Professor, Universidad de Concepciòn</p></li>
+<li><p>Toon Vestraelen, Professor, Ghent University</p></li>
+<li><p>Gabriella Sánchez-Dìaz, McMaster University</p></li>
+<li><p>Ali Tehrani, McMaster University</p></li>
+<li><p>Geoff Hutchinson, Avogadro2 Lead</p></li>
+<li><p>Elaine Meng, PhD, ChimeraX Development Team, University of California San Francisco</p></li>
+<li><p>Anthony Schaefer, PhD, ChimeraX Development Team, University of California San Francisco</p></li>
+</ul>
