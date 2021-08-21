@@ -1,0 +1,42 @@
+body{
+        width: 85em;
+        margin: 0 auto;
+        font: monospace;
+        background-color: #1b1918;
+        list-style: decimal inside;
+        color: #e6e2e0
+        }
+
+
+h1{
+        font-size: 2em;
+        color: #407ee7;
+        }
+
+h2{
+        font-size: 1.75em;
+        color: #3d97b8;
+
+        }
+
+h3{
+        font-size: 1.5em;
+        color: #7b9726;
+        }
+
+h4{
+        font-size: 1.5em;
+        color: #6666ea;
+        }
+
+a{      
+        font-size:1em; 
+        color: #d5911a
+        }
+p{
+        font-size:1em;
+}
+ul{
+        font-size:1em;
+
+}
