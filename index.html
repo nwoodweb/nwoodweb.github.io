@@ -1,5 +1,7 @@
-<h1 id="google-summer-of-code-2021-exploring-alternative-visualizations-for-openchem-qcdevs">Google Summer of Code 2021: Exploring Alternative Visualizations for OpenChem QCDevs</h1>
-<p>Nathan Wood, Year 4 Undergraduate, Microbiology and Cell Science, University of Florida</p>
+<center>
+  <h1 id="google-summer-of-code-2021-exploring-alternative-visualizations-for-openchem-qcdevs">Google Summer of Code 2021: Exploring Alternative Visualizations for OpenChem QCDevs</h1>
+</center>
+  <p>Nathan Wood, Year 4 Undergraduate, Microbiology and Cell Science, University of Florida</p>
 <p>This project was prepared under the advisory of Dr. Farnaz Heidar-Zadeh, Dr. Paul Ayers, and Dr. Esteban Vohringer-Martinez</p>
 <h2 id="note-submitted-work">Note: Submitted Work</h2>
 <p>All work pertaining to objectives has been linked within the Results section.</p>
@@ -65,14 +67,18 @@
 <li><p>Projecting our vector quality against the rotated affine plane</p></li>
 <li><p>Visualizing the vector quality as a gradient vector field &quot;Quiver Plot&quot;</p></li>
 </ul>
-<p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="200"/></p>
+<center>
+  <p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="200"/></p>
+</center>
 <p>To plot a scalar quality, in this case electron density, we want to</p>
 <ul>
 <li><p>Rotate an affine plane and normalize to plot scalar quality against</p></li>
 <li><p>Assign our <code>scalarFunc</code> which is a scalar quality of a molecule, in this case, electrostatic density</p></li>
 <li><p>Visualizing the scalar quality as a contour plot, with our <code>scalarFunc</code> representing the level curves</p></li>
 </ul>
+<center>
 <p><img src="contour.png" alt="Contour Plot for Electron Densityof 2,6-Dichloropyridine" width="200"/></p>
+</center>
 <h2 id="post-mortem">Post Mortem</h2>
 <h3 id="administrative">Administrative</h3>
 <p>While debug and deprecated code has been removed, parameters for functions need to be explicitly detailed</p>
