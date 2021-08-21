@@ -50,7 +50,7 @@
 </p>
 <p>IOData possesses a feature known as <code>extra</code>, which allows writing in B Factors when an intermediate PDB file is opened using IOData function <code>load_one</code>, which can then be written to a finalized PDB file to be loaded into ChimeraX. Once loaded, ChimeraX can visualize the B Factor using its labeling utilities.</p>
 <center>
-<img src="3dannotate.png" alt="3D Annotation with ESP Charges of 2,6-dichloropyridine" width="200"/>
+<img src="3dannotate.png" alt="3D Annotation with ESP Charges of 2,6-dichloropyridine" width="300"/>
 </center>
 <h3 id="d-annotation-of-molecules-3">2D Annotation of Molecules</h3>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.ipynb">Jupyter Notebook of 2D Annotation</a></p>
@@ -58,7 +58,7 @@
 <p>IOData is used to dump an XYZ and PDB files from the original Gaussian Checkpoint (fchk) file. XYZ files are capable of being converted to accurate SMILES strings via the Chemml utilities, however, the order of the atoms being enumerated differs from that of IOData, making it non-trivial to assign charges resulting from IOData’s <code>atcharges</code> call. On the other hand, PDB Files maintain the atomic order as IOData, however, RDKit cannot visualize any pi bonds from the PDB. This is due to the fact that PDB Files store pi bond data based on the distance between atoms in cartesian space, whereas RDKit prefers bonds to be explicitly detailed.</p>
 <p>To address both issues, we can first correct the geometry of the PDB by using RDKit’s <code>Compute2DCoords</code> and then force the PDB to assume the visualization stile of the afforementioned SMILES string using <code>AssignBondOrdersFromTemplate</code>. Afterwards, the charges from IOData can be assigned iteratively.</p>
 <center>
-<img src="test11.png" alt="2D Annotation with ESP Charges of 2,6-dichloropyridine" width="200"/>
+<img src="test11.png" alt="2D Annotation with ESP Charges of 2,6-dichloropyridine" width="300"/>
 </center>
 <h3 id="plotting-of-vector-and-scalar-qualities-of-molecules-1">Plotting of Vector and Scalar Qualities of Molecules</h3>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/plotting/2D_Plotting_Gradient.ipynb">Jupyter Notebook of Both Vector and Scalar Qualities</a></p>
@@ -72,7 +72,7 @@
 <li><p>Visualizing the vector quality as a gradient vector field &quot;Quiver Plot&quot;</p></li>
 </ul>
 <center>
-  <p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="200"/></p>
+  <p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="300"/></p>
 </center>
 <p>To plot a scalar quality, in this case electron density, we want to</p>
 <ul>
@@ -81,14 +81,14 @@
 <li><p>Visualizing the scalar quality as a contour plot, with our <code>scalarFunc</code> representing the level curves</p></li>
 </ul>
 <center>
-<p><img src="contour.png" alt="Contour Plot for Electron Densityof 2,6-Dichloropyridine" width="200"/></p>
+<p><img src="contour.png" alt="Contour Plot for Electron Densityof 2,6-Dichloropyridine" width="300"/></p>
 </center>
 <h2 id="post-mortem">Post Mortem</h2>
 <h3 id="administrative">Administrative</h3>
 <p>While debug and deprecated code has been removed, parameters for functions need to be explicitly detailed</p>
 <h3 id="discrepancies-between-vmd-and-chimerax">Discrepancies between VMD and ChimeraX</h3>
 <p>There is a discrepancy between appropriate values to display isosurface levels between both ChimeraX and VMD. For the example 2,6-dichloropyridine, the previous VMD example recommends setting <code>isoSurf</code> to .003 (left), however, in ChimeraX, this will produce a noticeable uncolored void that can be corrected when setting <code>isoSurf</code> to .005 (right).</p>
-<p><img src="vmdfail.png" alt="isoSurf=.003" width="200" /> <img src="vmdcorrect.png" alt="AisoSurf=.005" width="200" /></p>
+<center><p><img src="vmdfail.png" alt="isoSurf=.003" width="200" /> <img src="vmdcorrect.png" alt="AisoSurf=.005" width="200" /></p></center>
 <h3 id="molecular-graphs">Molecular Graphs</h3>
 <p>The original goal of visualizing molecular graphs detailing the critical points of bonds and ring structures was not fulfilled</p>
 <center><h2 id="moving-forward">Moving Forward</h2></center>
