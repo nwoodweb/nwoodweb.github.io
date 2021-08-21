@@ -60,8 +60,10 @@ href = "style.css" />
 <p>IOData can output to Protein Data Bank (PDB) files, a text file that enumerates monomer and a atomic data, such as element, XYZ cartesian coordinates, and B Factor, which has historically been used to quantify flexibility and freedom of motion in computational protein-ligand docking. Originally, ChimeraX’s Attribute Files, which allow a tab separated table enumerating characteristics per unit, was conceived as a means of annotating molecules as it was not considered to be a &quot;hack&quot; and could allow multiple different annotations could be performed without overwriting our PDB. However, this was abandoned due to the complexity of assigning IOData values to an format ChimeraX finds accessible.<br />
 </p>
 <p>IOData possesses a feature known as <code>extra</code>, which allows writing in B Factors when an intermediate PDB file is opened using IOData function <code>load_one</code>, which can then be written to a finalized PDB file to be loaded into ChimeraX. Once loaded, ChimeraX can visualize the B Factor using its labeling utilities.</p>
-<center>
+<figure>
+  <center>
 <img src="3dannotate.png" alt="3D Annotation with ESP Charges of 2,6-dichloropyridine" width="300"/>
+    <figcaption>3D Annotation using Electrostatic Potential Charges, 2,6-dichloropyridine</figcaption>
 </center>
 <h3 id="d-annotation-of-molecules-3">2D Annotation of Molecules</h3>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.ipynb">Jupyter Notebook of 2D Annotation</a></p>
@@ -71,7 +73,7 @@ href = "style.css" />
 <figure>
   <center>
 <img src="test11.png" alt="2D Annotation with ESP Charges of 2,6-dichloropyridine" width="300"/>
-    <figcaption>2D Annotation with ESP Charges, 2,6-dichloropyridine</figcaption>
+    <figcaption>2D Annotation with Electrostatic Potential Charges, 2,6-dichloropyridine</figcaption>
 </center>
   </figure> 
 <h3 id="plotting-of-vector-and-scalar-qualities-of-molecules-1">Plotting of Vector and Scalar Qualities of Molecules</h3>
@@ -85,9 +87,12 @@ href = "style.css" />
 <li>Projecting our vector quality against the rotated affine plane</li>
 <li>Visualizing the vector quality as a gradient vector field &quot;Quiver Plot&quot;</li>
 </ul>
+  <figure>
 <center>
   <p><img src="dichlorgradient.png" alt="Gradient Vector Field of 2,6-Dichloropyridine" width="300"/></p>
+  <figcaption>Gradient Vector Field Plot of 2,6-dichloropyridine</figcaption>
 </center>
+  </figure>
 <p>To plot a scalar quality, in this case electron density, we want to</p>
 <ul>
 <li>Rotate an affine plane and normalize to plot scalar quality against</li>
@@ -95,16 +100,24 @@ href = "style.css" />
 <li>Visualizing the scalar quality as a contour plot, with our <code>scalarFunc</code> representing the level curves</li>
 </ul>
 <center>
+  <figure>
 <p><img src="contour.png" alt="Contour Plot for Electron Densityof 2,6-Dichloropyridine" width="300"/></p>
+    <figcaption>Contour Plot of Electron Densities in 2,6-dichloropyridine</figcaption>
 </center>
+  </figure>
 <center><h2 id="post-mortem">Post Mortem</h2></center>
 <h3 id="administrative">Administrative</h3>
-<p>While debug and deprecated code has been removed, parameters for functions need to be explicitly detailed</p>
+<p>While debug and deprecated code has been removed, parameters for functions need to be explicitly detailed.</p>
 <h3 id="discrepancies-between-vmd-and-chimerax">Discrepancies between VMD and ChimeraX</h3>
 <p>There is a discrepancy between appropriate values to display isosurface levels between both ChimeraX and VMD. For the example 2,6-dichloropyridine, the previous VMD example recommends setting <code>isoSurf</code> to .003 (left), however, in ChimeraX, this will produce a noticeable uncolored void that can be corrected when setting <code>isoSurf</code> to .005 (right).</p>
-<center><p><img src="vmdfail.png" alt="isoSurf=.003" width="200" /> <img src="vmdcorrect.png" alt="AisoSurf=.005" width="200" /></p></center>
+<figure>
+  <center>
+    <p><img src="vmdfail.png" alt="isoSurf=.003" width="200" /> <img src="vmdcorrect.png" alt="AisoSurf=.005" width="200" /></p>
+    <figcaption><code>isoSurf</code> value <code>.003</code>(left) yields an faulty visualization, <code>isoSurf</code> value <code>.005</code> corrects this</figcaption>
+  </center>
+  </figure>
 <h3 id="molecular-graphs">Molecular Graphs</h3>
-<p>The original goal of visualizing molecular graphs detailing the critical points of bonds and ring structures was not fulfilled</p>
+<p>The original goal of visualizing molecular graphs detailing the critical points of bonds and ring structures was not fulfilled.</p>
 <center><h2 id="moving-forward">Moving Forward</h2></center>
 <h3 id="administrative-1">Administrative</h3>
 <ol type="1">
