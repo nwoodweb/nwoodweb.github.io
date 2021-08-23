@@ -20,7 +20,7 @@ href = "style.css" />
 </center>
 <p>All work pertaining to objectives has been linked within the Results section.</p>
 <p>For ease of access, links can also be found below:</p>
-<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimerax_vis_esp.py">Python Function of ChimeraX Isosurface Visualization</a></p>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimeraxVisualizeIsosurfaces.py">Python Function of ChimeraX Isosurface Visualization</a></p>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.ipynb">Jupyter Notebook of 3D Annotation</a></p>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_3D/3DimensionAnnotation.py">Python Script of 3D Annotation</a></p>
 <p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/annotate_2D/2DAnnotate.ipynb">Jupyter Notebook of 2D Annotation</a></p>
@@ -48,9 +48,9 @@ href = "style.css" />
   <center>
     <h2 id="results">Results</h2>
   </center>
-<h3 id="visualizing-electrostatic-potential-isosurfaces-1">Visualizing Electrostatic Potential Isosurfaces</h3>
-<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimerax_vis_esp.py">Python/ChimeraX Script to Visualize Isosurfaces</a></p>
-<p>A script, consolidated as function <code>print_chimerax_isosurfaces</code>, has been written, and accomplishes the following actions within the ChimeraX Environment:</p>
+<h3 id="visualizing-electrostatic-potential-isosurfaces-1">Visualizing Isosurfaces</h3>
+<p><a href="https://github.com/nwoodweb/chemtools/blob/master/examples/esp/chimeraxVisualizeIsosurfaces.py">Python/ChimeraX Script to Visualize Isosurfaces</a></p>
+<p>A script, consolidated as function <code>print_chimerax_isosurfaces()</code>, has been written, and accomplishes the following actions within the ChimeraX Environment:</p>
 <ul>
 <li>Open our surfaces file, generically named <code>*_rho.cube</code></li>
 <li>Open our map file, which allows us to color the surfaces, generically named <code>*_esp.cube</code>, which can be excluded entirely if <code>colorMap = None</code> is set</li>
@@ -58,7 +58,8 @@ href = "style.css" />
 <li>Set the lighting, shadows, surface material appearance (ie dull or shiny), and representation (ie sufraces or meshes)</li>
 <li>Set a color palette, both custom or built into ChimeraX</li>
 <li>Set the minimum <code>scalemin</code> and maximum <code>scalemax</code> value range for colorizng the surfaces, or allow ChimeraX to determine the most suitable range using the string <code>'compute'</code> for both the <code>scalemin</code> and <code>scalemax</code> parameters within the script</li>
-</ul>
+  </ul>
+  <p>Furthermore, the rendering of Gaussian Cube Files is not specific to Electrostatic Potentials, given that the correct <code>*.cube</code> and parameters are given</p>
   <figure>
   <center>
 <img src="espIso.gif" alt="ChimeraX ESP Isosurface Visualization 2,6-Dichloropyridine" width="400"/>
